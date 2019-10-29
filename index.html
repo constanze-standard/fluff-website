@@ -1,0 +1,96 @@
+---
+layout: default
+---
+<div class="row py-3">
+    <div class="col">
+        <div class="card border-0">
+            <div class="card-body">
+                <h3 class="card-title display-4 color_zangblue">拥抱变革！</h3>
+                <p class="color_zangblue text_size_20 text_lh_2">web 开发再一次变得有趣起来了</p>
+                <hr />
+                <p class="color_zangblue text_size_18 text_lh_2">
+                    Fluff 是一个为 web 应用打造的微框架。整合当今主流的实践标准，帮助你实现高可用性的应用程序。<br />
+                    我们相信【让专业的人做专业的事】会带来最好的结果，在软件架构中也是如此。
+                    Fluff 专注于【融合各方的力量】来解决问题，挑选最专业的或最适合的应用组件，
+                    将使你的程序更好更快的运转。
+                </p>
+                <a href="{% link docs/v1/index.md %}" class="btn btn_royal btn-lg">入门指南</a>
+                <a href="https://github.com/constanze-standard/fluff" target="_blank" class="btn btn-link color_royal_blue">
+                    Github Home Page
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="bg-light p-3">
+        {% include example.html %}
+        </div>
+    </div>
+</div>
+
+<div class="row py-3 bg_old_lace">
+    <div class="col">
+        <div class="row">
+            <div class="col-md">
+                <div class="card bg_old_lace border-0">
+                    <div class="card-body">
+                        <div class="text_size_18rem text-center color_royal_blue">
+                            <i class="fas fa-bolt color_royal_blue"></i> 效率
+                        </div>
+                        <p class="color_royal_blue text-left text_lh_2">
+                            简约高效的架构使你的应用程序快如闪电，标准化的方案让你的开发效率大幅提高！使用 Fluff 将效率贯穿始终。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="card bg_old_lace border-0 text-center">
+                    <div class="card-body color_royal_blue">
+                        <div class="text_size_18rem text-center color_royal_blue">
+                            <i class="fas fa-bong color_royal_blue"></i> 自由
+                        </div>
+                        <p class="color_royal_blue text-left text_lh_2">
+                            Fluff 采用多核心结构，从而使自身变得易于改造和扩展，让你能够在多种经典架构中畅游，寻找属于你的最佳方案。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="card bg_old_lace border-0">
+                    <div class="card-body color_royal_blue text-center">
+                        <div class="text_size_18rem text-center color_royal_blue">
+                            <i class="fas fa-magic color_royal_blue"></i> 乐趣
+                        </div>
+                        <p class="color_royal_blue text-left text_lh_2">
+                            随心所欲的组合，实现不同风格的设计，让传统框架的条条框框不复存在。web 开发再一次变得有趣起来！
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row py-3">
+    <div class="col">
+        <h1 class="mx-auto col-3 text-center text_size_18rem text_lh_2 border-bottom color_zangblue">
+            博 客
+        </h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        {% for post in site.posts limit:4 %}
+        <article class="">
+            <time class="color_royal_blue">{{ post.date | date: "%Y年%m月%d日" }}</time>
+            <h2 class="display-5"><a href="{{ post.url }}" class="color_royal_blue">{{ post.title }}</a></h2>
+            <div class="color_zangblue text_size_18">
+                {{ post.excerpt }}
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</div>

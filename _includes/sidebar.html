@@ -1,0 +1,20 @@
+<ul class="list-group list-group-flush">
+    {% for section in page.docs-v1 %}
+        {% assign isCurrentSection = false %}
+        {% for item in section.items %}
+            {% capture itemUrl %}{{ item[0] | replace: '.md', '.html' }}{% unless item[0] contains ".md" %}/{% endunless %}{% endcapture %}
+            {% if itemUrl == page.url %}
+                {% assign isCurrentSection = true %}
+            {% endif %}
+        {% endfor %}
+        <li class="list-group-item font-weight-bold">{{ section.title }}</li>
+        <ul class="list-group list-group-flush">
+            {% for item in section.items %}
+                {% capture itemUrl %}{{ item[0] | replace: '.md', '.html' }}{% unless item[0] contains ".md" %}/{% endunless %}{% endcapture %}
+                <li class="list-group-item">
+                    <a class="text_size_08{% if currentPage == item[1] %} color_royal_blue{% else %} text-muted{% endif %}" href="/fluff-website{{ itemUrl }}">{{ item[1] }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</ul>

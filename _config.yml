@@ -1,0 +1,87 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you: 
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+title: Fluff
+email: omytty.alex@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "/fluff-website" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+# theme: minima
+# plugins:
+#   - jekyll-feed
+
+defaults:
+- scope:
+    path: ""
+    type: "pages"
+  values:
+    docs-v1:
+      - title: 欢迎
+        items:
+        - [/docs/v1/index.md, Fluff 微框架]
+        - [/docs/v1/guide.md, 阅读指南]
+        - [/docs/v1/principle.md, 工作原理]
+        - [/docs/v1/example.md, 快速上手]
+      - title: 核心组件
+        items:
+          - [/docs/v1/request_handler.md, Request Handler]
+          - [/docs/v1/request_handler_basic.md, 基本模式]
+          - [/docs/v1/request_handler_di.md, 依赖注入模式：DI]
+          - [/docs/v1/request_handler_delay.md, 延迟策略模式：Delay]
+          - [/docs/v1/output.md, 请求派发模式：Dispatcher]
+      - title: 中间件
+        items:
+          - [/docs/v1/output.md, 输出缓冲区]
+          - [/docs/v1/output.md, 异常捕获]
+          - [/docs/v1/output.md, Cookies]
+      - title: Cook book
+        items:
+          - [/docs/v1/output.md, 将错误转化为异常]
+          - [/docs/v1/output.md, 几种流行的模式]
+- scope:
+    path: "docs/v1"
+    type: "pages"
+  values:
+    layout: docs-v1
+
+    defaults:
+- scope:
+    path: "assets/lib/scripts"
+  values:
+    lib_scripts: true
+- scope:
+    path: "assets/lib/styles"
+  values:
+    lib_styles: true
+- scope:
+    path: "assets/css"
+  values:
+    styles: true

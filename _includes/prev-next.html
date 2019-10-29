@@ -1,0 +1,33 @@
+<div class="row my-4">
+    <div class="w-100 px-3">
+        {% for section in page.docs-v1 %}
+            {% assign isCurrentSection = false %}
+            {% for item in section.items %}
+
+                {% comment %}skip menu items that point to a page fragment{% endcomment %}
+                {% if item[0] contains '#' %}
+                    {% break %}
+                {% endif %}
+
+                {% capture itemUrl %}{{ item[0] | replace: '.md', '.html' }}{% unless item[0] contains ".md" %}/{% endunless %}{% endcapture %}
+                {% if itemUrl == page.url %}
+                    {% if prevSection and prevItem %}
+                        <div class="page-item float-left">
+                            <a class="page-link text_size_08 color_royal_blue" href="{{ prevItemUrl }}"><i class="fa fa-arrow-left"></i> {{ prevSection.title }}: {{ prevItem[1] }}</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+
+                {% if prevItemUrl == page.url %}
+                    <div class="page-item float-right">
+                        <a class="page-link text_size_08 color_royal_blue" href="{{ itemUrl }}">{{ section.title }}: {{ item[1] }} <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                {% endif %}
+
+                {% assign prevSection = section %}
+                {% assign prevItem = item %}
+                {% assign prevItemUrl = itemUrl %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+</div>

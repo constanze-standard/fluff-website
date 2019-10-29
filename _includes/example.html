@@ -1,0 +1,19 @@
+{% highlight php %}
+<?php
+
+use ConstanzeStandard\Fluff\Application;
+use ConstanzeStandard\Fluff\RequestHandler\Args;
+use ConstanzeStandard\Fluff\RequestHandler\Delay;
+use ConstanzeStandard\Fluff\RequestHandler\Dispatcher;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+// 顺序传参核心 ↓
+$definition = Args::getDefinition();
+// 延迟策略核心 ↓
+$definition = Delay::getDefinition($definition, $container);
+// 路由派发核心
+$core = new Dispatcher($definition);
+// 创建应用
+$app = new Application($core);
+{% endhighlight %}
