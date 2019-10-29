@@ -56,16 +56,17 @@ defaults:
           - [/docs/v1/request_handler_basic.md, 基本模式]
           - [/docs/v1/request_handler_di.md, 依赖注入模式：DI]
           - [/docs/v1/request_handler_delay.md, 延迟策略模式：Delay]
-          - [/docs/v1/output.md, 请求派发模式：Dispatcher]
+          - [/docs/v1/request_handler_dispatcher.md, 请求派发模式：Dispatcher]
       - title: 中间件
         items:
-          - [/docs/v1/output.md, 输出缓冲区]
-          - [/docs/v1/output.md, 异常捕获]
-          - [/docs/v1/output.md, Cookies]
+          - [/docs/v1/middleware_output.md, 输出缓冲区]
+          - [/docs/v1/middleware_exception_captor.md, 异常捕获]
+          - [/docs/v1/middleware_cookies.md, Cookies]
       - title: Cook book
         items:
-          - [/docs/v1/output.md, 将错误转化为异常]
-          - [/docs/v1/output.md, 几种流行的模式]
+          - [/docs/v1/cookbook_error2exception.md, 将错误转化为异常]
+          - [/docs/v1/cookbook_di_get_request.md, 在 Di 模式下获取 Request]
+          - [/docs/v1/cookbook_flows.md, 几种流行的模式]
 - scope:
     path: "docs/v1"
     type: "pages"

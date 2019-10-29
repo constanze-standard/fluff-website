@@ -100,6 +100,6 @@ $core = new Di($container, function(Speaker $speaker) {
     $speaker->speak('Hello!');
 });
 ```
-这种注入方法限定了参数类型，从而在解除耦合度的同时，保持了程序的健壮性。`类型提示法`的优先级排在“以字符串为键的参数列表项”之后。
+这种注入方法限定了参数类型，从而在解除耦合的同时，保持了程序的健壮性。`类型提示法`的优先级排在“以字符串为键的参数列表项”之后。
 
 我们上面所说的几种参数注入方法可以混用，只要注意优先级顺序即可。关于注解类的使用，默认情况下，我们在内部引用了 [`doctrine/annotations`](https://www.doctrine-project.org/projects/doctrine-annotations/en/latest/index.html) 组件，其特性与 Annotations 组件一致。

@@ -1,6 +1,7 @@
 ---
 title: Request Handler
 ---
+
 `Request Handler`，顾名思义，是针对 request 的一段处理逻辑，在 Fluff 中，`Request Handler` 接受一个 PSR-7 server-side request 对象，并返回一个 `Response` (`Psr\Http\Message\ResponseInterface`) 对象：
 ```php
 use Psr\Http\Message\ResponseInterface;
