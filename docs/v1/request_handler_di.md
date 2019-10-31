@@ -62,6 +62,7 @@ $container->add('user_name', 'Alex');
 
 现在我们可以将 Target 类传入 Di 组件作为核心，创建应用了：
 ```php
+use ConstanzeStandard\Fluff\Application;
 use ConstanzeStandard\Fluff\Middleware\EndOutputBuffer;
 use ConstanzeStandard\Fluff\RequestHandler\DI;
 use Nyholm\Psr7\ServerRequest;

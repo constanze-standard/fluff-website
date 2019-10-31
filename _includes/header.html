@@ -14,11 +14,8 @@
                 <li class="nav-item{% if page.url contains "/blog" %} active{% endif %}">
                     <a class="nav-link" href="/fluff-website{% link blog/index.html %}">博客</a>
                 </li>
-                <li class="nav-item{% if page.url contains "/contribute" %} active{% endif %}">
-                    <a class="nav-link" href="/fluff-website{% link blog/index.html %}">帮助</a>
-                </li>
             </ul>
-            <a class="navbar-brand color_royal_blue" href="{% link api/v1/index.html %}">API</a>
+            <a class="navbar-brand color_royal_blue" href="/fluff-website{% link blog/index.html %}">帮助</a>
         </div>
     </div>
 </nav>
