@@ -6,6 +6,10 @@ title: 在 Di 模式下获取 Request
 
 ## 定义 RequestCatchingMiddleware
 我们需要定义一个中间件，在请求经过 Request Handler 之前的最后一层捕获 Request 对象，并注册到容器中。
+
+![Fluff 生命周期](/fluff-website/docs/v1/images/request-catching.png)
+
+### 代码参考：
 ```php
 use ConstanzeStandard\Container\Container;
 use Psr\Http\Message\ResponseInterface;
