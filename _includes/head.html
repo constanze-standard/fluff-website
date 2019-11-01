@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     {% assign lib_styles = site.static_files | where: "lib_styles", true %}
     {% for css in lib_styles %}
-        <link rel="stylesheet" href="/fluff-website{{ css.path }}" />
+        <link rel="stylesheet" href="{{ css.path }}" />
     {% endfor %}
 
     {% assign lib_scripts = site.static_files | where: "lib_scripts", true %}
     {% for script in lib_scripts %}
-        <script src="/fluff-website{{ script.path }}"></script>
+        <script src="{{ script.path }}"></script>
     {% endfor %}
 
     {% assign styles = site.static_files | where: "styles", true %}
     {% for css in styles %}
-        <link rel="stylesheet" href="/fluff-website{{ css.path }}" />
+        <link rel="stylesheet" href="{{ css.path }}" />
     {% endfor %}
 
     <title>{{ site.title | escape }}</title>

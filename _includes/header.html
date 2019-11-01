@@ -1,6 +1,6 @@
 <nav class="header-nav navbar navbar-expand-lg navbar-light bg-light w-100">
     <div class="container">
-        <a class="navbar-brand" href="/fluff-website{% link index.html %}">
+        <a class="navbar-brand" href="{% link index.html %}">
             <strong class="color_royal_blue logo-text">{{ site.title }}</strong>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,13 +9,13 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item{% if page.url contains "/docs" %} active{% endif %}">
-                    <a class="nav-link" href="/fluff-website{% link docs/v1/index.md %}">文档</a>
+                    <a class="nav-link" href="{% link docs/v1/index.md %}">文档</a>
                 </li>
                 <li class="nav-item{% if page.url contains "/blog" %} active{% endif %}">
-                    <a class="nav-link" href="/fluff-website{% link blog/index.html %}">博客</a>
+                    <a class="nav-link" href="{% link blog/index.html %}">博客</a>
                 </li>
             </ul>
-            <a class="navbar-brand color_royal_blue" href="/fluff-website{% link blog/index.html %}">帮助</a>
+            <a class="navbar-brand color_royal_blue" href="{% link blog/index.html %}">帮助</a>
         </div>
     </div>
 </nav>
