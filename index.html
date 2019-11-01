@@ -86,7 +86,7 @@ layout: default
         {% for post in site.posts limit:4 %}
         <article class="">
             <time class="color_royal_blue">{{ post.date | date: "%Y年%m月%d日" }}</time>
-            <h2 class="display-5"><a href="{{ post.url }}" class="color_royal_blue">{{ post.title }}</a></h2>
+            <h2 class="display-5"><a href="/fluff-website{{ post.url }}" class="color_royal_blue">{{ post.title }}</a></h2>
             <div class="color_zangblue text_size_18">
                 {{ post.excerpt }}
             </div>

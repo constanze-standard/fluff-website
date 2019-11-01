@@ -6,14 +6,14 @@ title: 工作原理
 ## 请求周期
 一次请求的生命周期很简单，如下图所示：
 
-![Fluff 生命周期](/fluff-website/docs/v1/images/fluff-working.png)（图 1）
+<img class="img-fluid" src="/fluff-website/docs/v1/images/fluff-working.png" />（图 1）
 
 首先是中间件构建器将多个`中间件(Middleware)`整合为一个栈结构的处理程序，然后请求实例从外到内逐一通过中间件，最后交由请求处理程序(`Request Handler`)，也就是 Fluff 的核心进行处理并创建一个 `Response` 实例，之后，经过中间件组的回溯处理，返回最终的 `Response`。
 
 ## 框架的核心
 `Request Handler` 即是整个框架的核心，它决定了框架处理业务逻辑的方式，以及框架所支持的架构模式。FLuff 的核心是以组件形式提供的，它们可以相互组合构成不同风格的 `Request Handler`，如下图所示：
 
-![Fluff 核心](/fluff-website/docs/v1/images/core.png)（图 2）
+<img class="img-fluid" src="/fluff-website/docs/v1/images/core.png" />（图 2）
 
 Fluff 提供的 `Request Handler` 组件中，包括了一些基本元件，它们可以独立的作为核心激活 `Application`，而另外一些则需要与其他 `Request Handler` 组件配合使用，以继承它们的行为，实现可变的架构风格。
 

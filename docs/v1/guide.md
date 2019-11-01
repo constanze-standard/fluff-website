@@ -4,21 +4,17 @@ title: 阅读指南
 
 Fluff 很简单，请按照下面给出的建议阅读文档，很快就可以开启你的创作之旅 : )
 
-## 文档里都有什么？
-Fluff 的文档包括三个部分，所有读者都应该从“[教程 (Tutorial)](doc3.md)”开始，我们会循序渐进的展示 Fluff 的基本用法；“[指南 (Guides)](doc4.md)”详细说明了 Fluff 涵盖的主要功能；“[API](doc5.md)” 部分列出了所有可用的 API 详情。
-
-## 基础中的基础
-
-#### 学习 PHP
+## 学习基础知识
+### 学习使用 PHP
 如果你还是 PHP 的新手，我们建议你花费一点时间阅读 PHP 官方文档的[语言参考](https://www.php.net/manual/en/langref.php)部分。
 
-#### 了解 HTTP
+### 了解 HTTP
 web 应用的开发与 HTTP 协议密切相关，也是浏览器与服务器的主要通信手段，在开始一切之前，充分了解 HTTP 知识是很有必要的。请阅读 Mozilla Developer Network 中对 [HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP) 的介绍。
 
-#### 阅读 PSR 标准
+### 阅读 PSR 标准
 [PSR](https://www.php-fig.org/psr/) 是 [PHP-FIG](https://www.php-fig.org/) 制定的一系列的标准和建议，遵循 PSR 标准的程序往往能够在不同的系统上运转，有很强的适应性。Fluff 引入了两项 PSR 标准，分别是 [PSR-7](https://www.php-fig.org/psr/psr-7/) 和 [PSR-15](https://www.php-fig.org/psr/psr-15/)，在开始之前，首先了解这些协议，将对你的学习和开发有所帮助。
 
-#### 学习使用 composer
+### 学习使用 composer
 [composer](https://getcomposer.org/) 是目前最流行的 PHP 依赖管理器，Fluff 利用 composer 管理项目的构建和发布。composer 也是现代 PHP 开发者必须掌握的工具之一，请阅读[官方文档](https://getcomposer.org/doc/)学习基本的使用方法。
 
 ## 选择现代的 PHP
@@ -36,7 +32,7 @@ composer require nyholm/psr7 nyholm/psr7-server
 ```
 
 ## 如何运行脚本？
-由于 Fluff 的 http message 组件是从外部引入的，我们可以很方便的模拟 request 对象，因此，大部分的示例不需要使用任何 web 服务器工具，直接在命令行中执行脚本文件即可。如果文档没有特别提及，我们也将默认采用这种方式运行示例代码。
+由于 Fluff 的 http message 组件是从外部引入的，所以我们可以很方便的模拟 request 对象，因此，大部分的示例不需要使用任何 web 服务器工具，你只需要在命令行中执行脚本文件即可。如果文档没有特别提及，我们也将默认采用这种方式运行示例代码。
 ```sh
 php ./index.php
 ```

@@ -10,9 +10,7 @@ title: 快速上手
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Nyholm\Psr7Server\ServerRequestCreator;
 use Psr\Http\Message\ServerRequestInterface;
-/**
- * asdasd
- */
+
 $psr17Factory = new Psr17Factory();
 $creator = new ServerRequestCreator(
     $psr17Factory,
@@ -21,13 +19,14 @@ $creator = new ServerRequestCreator(
     $psr17Factory
 );
 /** @var ServerRequestInterface $request */
-$request = $creator->fromGlobals('asdasdads');
+$request = $creator->fromGlobals();
 ```
 
 ## 进入正题
 OK, 准备工作结束，进入正题！我们要实现的是一个对话程序，它可以智能的回答用户的任何提问。首先，我们向 `request handler` 传入一个 callable 类型的对象作为主要的逻辑处理程序。
 ```php
 # index.php
+use ConstanzeStandard\Fluff\Application;
 use ConstanzeStandard\Fluff\RequestHandler\Args;
 use Psr\Http\Message\ServerRequestInterface;
 use Nyholm\Psr7\Response;

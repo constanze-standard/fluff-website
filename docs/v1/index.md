@@ -19,26 +19,5 @@ title: Fluff 微框架
 composer require constanze-standard/fluff:1.0
 ```
 
-## 它是如何工作的
-这是一个可输出的最小应用 （引用组件：nyholm/psr7）.
-```php
-<?php
-
-use ConstanzeStandard\Fluff\Application;
-use ConstanzeStandard\Fluff\Middleware\EndOutputBuffer;
-use ConstanzeStandard\Fluff\RequestHandler\Handler;
-use Nyholm\Psr7\Response;
-use Nyholm\Psr7\ServerRequest;
-
-require __DIR__ . '/vendor/autoload.php';
-
-$app = new Application(new Handler(function($request) {
-    $user = $request->getUri()->getUserInfo();
-    return new Response(200, [], "I ♥ $user!");
-}));
-
-$app->addMiddleware(new EndOutputBuffer);
-
-$request = new ServerRequest('GET', '//Fluff@localhost');
-$app->handle($request);
-```
+## 支持与贡献
+欢迎你用任何方式参与和帮助 Fluff 项目，建议您首先阅读我们的 [CONTRIBUTING](https://github.com/constanze-standard/fluff/blob/master/CONTRIBUTING.md) 文档，了解如何参与开源项目的开发与管理。

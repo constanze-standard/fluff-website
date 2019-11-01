@@ -6,7 +6,7 @@ title: 中间件概述
 
 中间件是一个层次模型，你可以将它看做一系列的“层”，请求将从外向内通过每一层中间件，最终抵达 Request Handler. 在处理过程中，每一层都有权通过请求或拒绝请求返回 Response。当其中一层返回 Response 对象后，处理链条也随即终止。
 
-![中间件](/fluff-website/docs/v1/images/middleware.png)（图 1）
+<img class="img-fluid" src="/fluff-website/docs/v1/images/middleware.png" />
 
 ## 中间件的标准
 Fluff 使用的标准 是由 PHP-FIG 提供的 PSR-15，所以，如果你想要编写一个中间件，就需要实现 `\Psr\Http\Server\MiddlewareInterface` 接口，下面给出一个中间件的示例：
@@ -34,7 +34,7 @@ class AgeMiddleware implements MiddlewareInterface
 中间件就是这样一种应用，请求经过的每一层都可以检查、改造或拒绝请求。
 
 ## 前置和后置操作
-中间件的的执行方式类似于入栈和出栈，当某一层返回 Response 后，会有一个回溯过程。所以中间件在请求之前还是之后执行，与 `$handler` 有关，如下例所示：
+中间件的的执行方式类似于入栈和出栈，而当某一层返回 Response 后，还会有一个回溯过程。所以中间件在请求之前还是之后执行，与 `$handler` 有关，如下例所示：
 ```php
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;

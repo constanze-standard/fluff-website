@@ -44,12 +44,14 @@ $strategy = function($className, $method) {
 然后，我们观察 `Target::say` 方法，这个方法接受一个字符串，并直接使用，所以我们可以选择使用 `Vargs` 这一 `Request Handler` 作为`调用策略`，我们只需要将 `Vargs` 的 `Definition` 和额外的参数（这里是 `$word`）的值一并传入 `Delay` 组件即可完成构建：
 ```php
 use ConstanzeStandard\Fluff\Application;
+use ConstanzeStandard\Fluff\Middleware\EndOutputBuffer;
 use ConstanzeStandard\Fluff\RequestHandler\Delay;
 use ConstanzeStandard\Fluff\RequestHandler\Vargs;
 use Nyholm\Psr7\ServerRequest;
 
 $core = new Delay($strategy, Vargs::getDefinition(), 'Target@say', ['Hello!']);
 $app = new Application($core);
+$app->addMiddleware(new EndOutputBuffer());
 
 $request = new ServerRequest('GET', '');
 $app->handle($request);
@@ -160,11 +162,11 @@ $container = new Container();
 $manager = new Manager($container);
 
 $strategy = function($className, $method) use ($manager) {
-    $instance = $manager->instance($className, []);
+    $instance = $manager->instance($className, ['userName' => 'Alex']);
     return [$instance, $method];
 };
 
-$definition = Di::getDefinition($container);
+$definition = Di::getDefinition($container, $manager);
 $core = new Delay($strategy, $definition, 'Target@say');
 
 ...

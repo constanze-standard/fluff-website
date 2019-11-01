@@ -31,7 +31,7 @@ class Target
      */
     public function say($speaker, $userName, $words): ResponseInterface
     {
-        return $this->speaker->speak($this->userName. ': '. $words);
+        return $speaker->speak($userName. ': '. $words);
     }
 }
 ```
@@ -98,7 +98,7 @@ $container = new Container();
 $container->add(Speaker::class, new Speaker());
 
 $core = new Di($container, function(Speaker $speaker) {
-    $speaker->speak('Hello!');
+    return $speaker->speak('Hello!');
 });
 ```
 这种注入方法限定了参数类型，从而在解除耦合的同时，保持了程序的健壮性。`类型提示法`的优先级排在“以字符串为键的参数列表项”之后。

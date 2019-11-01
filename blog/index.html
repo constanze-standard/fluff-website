@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<div class="row">
+    <div class="col">
+        <ul class="list-group list-group-flush">
+            {% for post in site.posts %}
+            <li class="list-group-item card border-0">
+                <i class="card-subtitle mt-2 text-muted text_size_08">{{ post.date | date: "%Y年%m月%d日" }}</i>
+                <h4 class="card-title"><a href="/fluff-website{{ post.url }}" class="color_royal_blue">{{ post.title }}</a></h4>
+                <div class="text-muted card-text">{{ post.excerpt }}</div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

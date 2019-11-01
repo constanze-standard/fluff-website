@@ -78,11 +78,11 @@ $router->options($pattern, $handler, $middlewares, $name);
 
 参数 `$pattern` 是 URL 的匹配模式，支持用`花括号 {}`标记一个 URL 参数，并传递给 `$handler`，并且可以对参数进行正则过滤，下面是一个示例，本例使用 `Vargs` 作为调用策略：
 ```php
-$router->get('/user/{id|\d+}', function($request, $id) {
+$router->get('/user/{id:\d+}', function($request, $id) {
     ...
 });
 ```
-上例中，我们指定了一个 URL 模式，在模式中，我们用花括号标记了 URL 参数 `id`，然后用 `|` 符号分隔，在后面指定了参数的验证规则 `\d+`，也就是，`id` 必须为数字。当比配成功后，参数将会被传入处理程序 `$handler` 中，由于我们本次选用了 `Vargs` 作为调用策略，所以 `$handler` 会接收到一个 Request 实例，和 URL 参数 `id`。
+上例中，我们指定了一个 URL 模式，在模式中，我们用花括号标记了 URL 参数 `id`，然后用冒号 (`:`)分隔，在后面指定了参数的验证规则 `\d+`，也就是，`id` 必须为数字。当比配成功后，参数将会被传入处理程序 `$handler` 中，由于我们本次选用了 `Vargs` 作为调用策略，所以 `$handler` 会接收到一个 Request 实例，和 URL 参数 `id`。
 
 *如果你仔细阅读前面的章节，会发现，路由组件实际上是把需要手动传递给 `Request Handler` 的参数列表，通过 URL 参数的形式传递了*。
 
@@ -114,7 +114,7 @@ $definition = Delay::getDefinition($strategy, Vargs::getDefinition());
 $core = new Dispatcher($definition);
 
 $router = $core->getRouter();
-$router->get('/user/{id|\d+}', 'Target@index');  // 继承了 Delay 组件的特性
+$router->get('/user/{id:\d+}', 'Target@index');  // 继承了 Delay 组件的特性
 
 $app = new Application($core);
 $app->addMiddleware(new EndOutputBuffer());
@@ -124,12 +124,12 @@ $app->handle(new ServerRequest('GET', '/user/12'));
 
 参数 `$middlewares` 是针对一个路由的中间件列表，与全局中间件处于不同的层面，添加一个中间件也可以使用连贯方法 `addMiddleware`.
 ```php
-$router->get('/user/{id|\d+}', 'Target@index')->addMiddleware($middleware);
+$router->get('/user/{id:\d+}', 'Target@index')->addMiddleware($middleware);
 ```
 
 参数 `$name` 是本条路由的名称，你可以利用路由名称获取该路由所对应的 URL, 也可以使用连贯方法 `setName` 设置路由名称：
 ```php
-$router->get('/user/{id|\d+}', 'Target@index')->setName('user.id');
+$router->get('/user/{id:\d+}', 'Target@index')->setName('user.id');
 
 $routeService = $router->getRouteService();
 $url = $routeService->urlFor('user.id', ['id' => 10], ['age' => 18]);
@@ -137,4 +137,4 @@ echo $url;  // /user/10?age=18
 ```
 
 ## Delay 与 Dispatcher 的组合比较常见
-Dispatcher 需要绑定多个处理程序（Handler），而多个 Handler 的初始化会造成不小的资源浪费，这时，Delay 组件的作用就体现了出来，它可以将对象初始化的工作推迟到匹配成功以后进行，这在很大程度上缓解了系统压力，所以，Delay 与 Dispatcher 的组合是比较常见的，也符合我们熟知的大部分传统框架的做法。
+Dispatcher 需要绑定多个处理程序（Handler），如果你使用类方法作为 Handler，那么，多个 PHP 类的初始化就会造成一定的资源浪费，这时，Delay 组件的作用就体现了出来，它可以将对象初始化的工作推迟到匹配成功以后进行，这在很大程度上缓解了系统压力，所以，Delay 与 Dispatcher 的组合是比较常见的，也符合我们熟知的大部分传统框架的做法。但你也许会选择 在路由中嵌入闭包 的形式，这在某些场景下也是比较实用的设计。

@@ -23,7 +23,7 @@ $app = new Application($core);
 $request = new ServerRequest('GET', '/user/asd');
 $response = $app->handle($request);
 
-echo $response->getBody()->getContents();  // Hello Alex
+echo $response->getBody();  // Hello Alex
 ```
 `Args` 有两个初始化参数：
 - `$handler`：callable 类型，负责生成 Response 对象的程序。这个可调用对象接受的第一个参数永远是一个 `Psr\Http\Message\ServerRequestInterface` 实例，第二个参数为用户传递的额外参数。$handler 必须返回一个 `Psr\Http\Message\ResponseInterface` 的实例。
@@ -32,21 +32,21 @@ echo $response->getBody()->getContents();  // Hello Alex
 ## 顺序传参模式：Vargs
 核心组件 Vargs，与 Args 的形式相似，但 `$handler` 接受任意个参数，额外的参数会按顺序以独立参数的形式传递。
 ```php
-use ConstanzeStandard\Fluff\RequestHandler\Args;
+use ConstanzeStandard\Fluff\RequestHandler\Vargs;
 use Psr\Http\Message\ServerRequestInterface;
 use Nyholm\Psr7\Response;
 use Nyholm\Psr7\ServerRequest;
 
-$core = new Args(function(ServerRequestInterface $request, $say, $name) {
+$core = new Vargs(function(ServerRequestInterface $request, $say, $name) {
     return new Response(
         200, [], $say . $name
     );
-}, ['Hello', 'Alex']);
+}, ['Hello ', 'Alex']);
 
 $app = new Application($core);
 
 $request = new ServerRequest('GET', '/user/asd');
 $response = $app->handle($request);
 
-echo $response->getBody()->getContents();  // Hello Alex
+echo $response->getBody();  // Hello Alex
 ```
