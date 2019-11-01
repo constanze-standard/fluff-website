@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+source "https://mirrors.tuna.tsinghua.edu.cn/rubygems"
 gem 'github-pages'
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 # gem "minima", "~> 2.5"
