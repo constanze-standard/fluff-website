@@ -89,6 +89,10 @@ body {
             line-height: 1.8em !important;
             margin-bottom: 1em;
             margin-top: 0;
+
+            img {
+                cursor: pointer;
+            }
         }
         .postHeaderTitle {
             margin-top: 0;

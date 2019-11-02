@@ -86,3 +86,7 @@ defaults:
     path: "assets/css"
   values:
     styles: true
+- scope:
+    path: "assets/scripts"
+  values:
+    scripts: true

@@ -2,6 +2,7 @@
 
 const { series, src, dest, watch } = require('gulp');
 const uglifycss = require('gulp-uglifycss');
+const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
 
@@ -13,8 +14,15 @@ function scssTask () {
     .pipe(uglifycss({"uglyComments": true}))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(dest('./assets/css/'));
-};
+}
 
-watch('./src/sass/**/*.scss', scssTask);
+function javascriptTask () {
+  return src('./src/scripts/main.js')
+    .pipe(uglify())
+    .pipe(rename({ extname: '.min.js' }))
+    .pipe(dest('./assets/scripts/'));
+}
 
-exports.default = series(scssTask);
+watch(['./src/sass/**/*.scss', './src/scripts/**/*.js'], series(scssTask, javascriptTask));
+
+exports.default = series(scssTask, javascriptTask);

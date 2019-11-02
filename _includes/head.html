@@ -14,6 +14,11 @@
         <script src="{{ script.path }}"></script>
     {% endfor %}
 
+    {% assign scripts = site.static_files | where: "scripts", true %}
+    {% for script in scripts %}
+        <script src="{{ script.path }}"></script>
+    {% endfor %}
+
     {% assign styles = site.static_files | where: "styles", true %}
     {% for css in styles %}
         <link rel="stylesheet" href="{{ css.path }}" />
