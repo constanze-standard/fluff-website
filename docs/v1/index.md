@@ -20,4 +20,4 @@ composer require constanze-standard/fluff:1.0
 ```
 
 ## 支持与贡献
-欢迎你用任何方式参与和帮助 Fluff 项目，建议您首先阅读我们的 [CONTRIBUTING](https://github.com/constanze-standard/fluff/blob/master/CONTRIBUTING.md) 文档，了解如何参与开源项目的开发与管理。
+欢迎你用任何方式参与和帮助 Fluff 项目，建议您首先阅读我们的[帮助]({% link help/index.html %})文档，了解如何参与开源项目的开发与管理。

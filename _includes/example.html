@@ -7,14 +7,12 @@ use ConstanzeStandard\Fluff\RequestHandler\Dispatcher;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-// 初始化策略 ↓
-$strategy = function($className, $method) {
-    return [new $className, $method];
-};
 // 调用策略 ↓
 $definition = Args::getDefinition();
 // 延迟策略 ↓
-$definition = Delay::getDefinition($strategy, $definition);
+$definition = Delay::getDefinition(function($className, $method) {
+    return [new $className, $method];
+}, $definition);
 // 路由派发策略
 $core = new Dispatcher($definition);
 // 创建应用
