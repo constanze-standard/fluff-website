@@ -2,7 +2,7 @@
 
 Fluff 微框架的官方网站构建器
 
-官网地址：http://www.fluff-framework.cn/
+官网地址：https://www.fluff-framework.cn/
 
 ## 在本地运行和测试：
 首先要安装 ruby，然后按照下面的命令构建系统：
