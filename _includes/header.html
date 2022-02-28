@@ -1,6 +1,6 @@
 <nav class="header-nav navbar navbar-expand-md navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="{% link index.html %}">
+        <a class="navbar-brand" href="{% link {{ "index.html" | prepend: site.baseurl }} %}">
             <strong class="color_royal_blue logo-text">{{ site.title }}</strong>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,13 +9,13 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item{% if page.url contains "/docs" %} active{% endif %}">
-                    <a class="nav-link" href="{% link docs/v1/index.md %}">文档</a>
+                    <a class="nav-link" href="{% link {{ "docs/v1/index.md" | prepend: site.baseurl }} %}">文档</a>
                 </li>
                 <li class="nav-item{% if page.url contains "/blog" %} active{% endif %}">
-                    <a class="nav-link" href="{% link blog/index.html %}">博客</a>
+                    <a class="nav-link" href="{% link {{ "blog/index.html" | prepend: site.baseurl }} %}">博客</a>
                 </li>
             </ul>
-            <a class="color_royal_blue" href="{% link help/index.html %}">帮助</a>
+            <a class="color_royal_blue" href="{% link {{ "help/index.html" | prepend: site.baseurl }} %}">帮助</a>
         </div>
     </div>
 </nav>
