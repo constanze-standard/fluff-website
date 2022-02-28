@@ -10,6 +10,7 @@ Fluff 以组件的形式提供了多种 `Request Handler`，从运行机制上�
 `Request Handler` 是框架的核心，我们可以将 Request Handler 传入 `Application` 来构建一个完整的应用程序。
 
 ```php
+// 伪代码
 use ConstanzeStandard\Fluff\Application;
 
 $core = new RequestHandler();
