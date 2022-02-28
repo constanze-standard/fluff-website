@@ -4,7 +4,7 @@ layout: default
 <div class="jumbotron mt-4 bg-light">
     <h1 class="display-4">新闻与博客</h1>
     <p class="lead">这里是 Fluff 微框架的官方博客主页，在这里，你可以获得有关 Fluff 项目的社区公告和最新资讯。</p>
-    <a href="{% link blog/feed.rss %}" class="btn btn_royal btn-lg text_size_08">
+    <a href="{{ "/blog/feed.rss" | prepend: site.baseurl }}" class="btn btn_royal btn-lg text_size_08">
         <i class="fa fa-rss-square color_light_font text_size_08"></i> 订阅我们的 RRS
     </a>
 </div>
@@ -15,7 +15,7 @@ layout: default
             {% for post in site.posts %}
             <li class="list-group-item card border-0">
                 <i class="card-subtitle mt-2 text-muted text_size_08">{{ post.date | date: "%Y年%m月%d日" }}</i>
-                <h4 class="card-title"><a href="{{ post.url }}" class="color_royal_blue">{{ post.title }}</a></h4>
+                <h4 class="card-title"><a href="{{ post.url | prepend: site.baseurl }}" class="color_royal_blue">{{ post.title }}</a></h4>
                 <div class="text-muted card-text">{{ post.excerpt }}</div>
             </li>
             {% endfor %}
