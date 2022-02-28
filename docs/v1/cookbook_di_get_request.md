@@ -7,7 +7,7 @@ title: 在 Di 模式下获取 Request
 ## 定义 RequestCatchingMiddleware
 我们需要定义一个中间件，在请求经过 Request Handler 之前的最后一层捕获 Request 对象，并注册到容器中。
 
-<img class="img-fluid" src="/docs/v1/images/request-catching.png" />
+<img class="img-fluid" src="{{ "/docs/v1/images/request-catching.png" | prepend: site.baseurl }}" />
 
 ### 代码参考：
 ```php

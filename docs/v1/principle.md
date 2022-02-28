@@ -6,7 +6,7 @@ title: 工作原理
 ## 请求周期
 一次请求的生命周期很简单，如下图所示：
 
-<img class="img-fluid" src="/docs/v1/images/fluff-working.png" />（图 1）
+<img class="img-fluid" src="{{ "/docs/v1/images/fluff-working.png" | prepend: site.baseurl }}" />（图 1）
 
 首先是中间件构建器将多个`中间件(Middleware)`整合为一个栈结构的处理程序，然后请求实例从外到内逐一通过中间件，最后交由请求处理程序(`Request Handler`)，也就是 Fluff 的核心进行处理并创建一个 `Response` 实例，之后，经过中间件组的回溯处理，返回最终的 `Response`。
 
