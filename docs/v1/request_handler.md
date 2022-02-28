@@ -18,7 +18,7 @@ $app = new Application($core);
 ```
 
 请参阅以下章节，了解不同核心的特性，并根据文章中的示例实现简单的 demo：
-- [基本的参数传递模式]({{ "docs/v1/request_handler_basic.html" | prepend: site.baseurl }})
-- [依赖注入模式]({{ "docs/v1/request_handler_di.html" | prepend: site.baseurl }})
-- [延迟初始化模式]({{ "docs/v1/request_handler_delay.html" | prepend: site.baseurl }})
-- [基于路由的请求派发模式]({{ "docs/v1/index.html" | prepend: site.baseurl }})
+- [基本的参数传递模式]({{ "/docs/v1/request_handler_basic.html" | prepend: site.baseurl }})
+- [依赖注入模式]({{ "/docs/v1/request_handler_di.html" | prepend: site.baseurl }})
+- [延迟初始化模式]({{ "/docs/v1/request_handler_delay.html" | prepend: site.baseurl }})
+- [基于路由的请求派发模式]({{ "/docs/v1/index.html" | prepend: site.baseurl }})
