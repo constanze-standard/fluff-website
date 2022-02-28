@@ -13,14 +13,14 @@
                 {% if itemUrl == page.url %}
                     {% if prevSection and prevItem %}
                         <div class="page-item float-left">
-                            <a class="page-link text_size_08 color_royal_blue" href="{{ prevItemUrl }}"><i class="fa fa-arrow-left"></i> {{ prevSection.title }}: {{ prevItem[1] }}</a>
+                            <a class="page-link text_size_08 color_royal_blue" href="{{ prevItemUrl | prepend: site.baseurl }}"><i class="fa fa-arrow-left"></i> {{ prevSection.title }}: {{ prevItem[1] }}</a>
                         </div>
                     {% endif %}
                 {% endif %}
 
                 {% if prevItemUrl == page.url %}
                     <div class="page-item float-right">
-                        <a class="page-link text_size_08 color_royal_blue" href="{{ itemUrl }}">{{ section.title }}: {{ item[1] }} <i class="fa fa-arrow-right"></i></a>
+                        <a class="page-link text_size_08 color_royal_blue" href="{{ itemUrl | prepend: site.baseurl }}">{{ section.title }}: {{ item[1] }} <i class="fa fa-arrow-right"></i></a>
                     </div>
                 {% endif %}
 
